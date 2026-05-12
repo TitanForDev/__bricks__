@@ -1,0 +1,6 @@
+{
+  "name": "打磚塊 (Breakout Arcade)",
+  "description": "一個使用 React + Canvas 開發的經典打磚塊遊戲，具有流暢的物理碰撞與現代化的介面設計。",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
