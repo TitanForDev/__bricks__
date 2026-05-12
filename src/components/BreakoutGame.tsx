@@ -193,17 +193,25 @@ const BreakoutGame: React.FC = () => {
     if (ball.y + ball.dy < ball.radius) {
       ball.dy = -ball.dy;
     } 
-    // Bottom collision
+    // Paddle collision
+    if (
+      ball.dy > 0 && 
+      ball.y + ball.radius > paddle.y && 
+      ball.y + ball.radius < paddle.y + paddle.height &&
+      ball.x > paddle.x && 
+      ball.x < paddle.x + paddle.width
+    ) {
+      // Change angle based on where it hit the paddle
+      const hitPoint = (ball.x - (paddle.x + paddle.width / 2)) / (paddle.width / 2);
+      ball.dx = hitPoint * BALL_SPEED * 1.5;
+      ball.dy = -BALL_SPEED; // Bounce up
+      // Adjust position to avoid multiple collisions
+      ball.y = paddle.y - ball.radius;
+    } 
+    // Bottom collision (Lose life)
     else if (ball.y + ball.dy > CANVAS_HEIGHT - ball.radius) {
-      // Paddle collision
-      if (ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
-        // Change angle based on where it hit the paddle
-        const hitPoint = (ball.x - (paddle.x + paddle.width / 2)) / (paddle.width / 2);
-        ball.dx = hitPoint * BALL_SPEED * 1.5;
-        ball.dy = -ball.dy;
-      } else {
-        // Lose life
-        setLives(prev => {
+      // Lose life
+      setLives(prev => {
           if (prev <= 1) {
             setStatus('GAMEOVER');
             return 0;
@@ -216,7 +224,6 @@ const BreakoutGame: React.FC = () => {
           return prev - 1;
         });
       }
-    }
 
     // Brick collision
     let activeBricks = 0;
