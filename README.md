@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 打磚塊 (Breakout Arcade)
 
-# Run and deploy your AI Studio app
+一個使用 React + Canvas 開發的經典打磚塊遊戲，具有流暢的物理碰撞與現代化的霓虹介面設計。
 
-This contains everything you need to run your app locally.
+## 遊戲特色
 
-View your app in AI Studio: https://ai.studio/apps/73f29455-5919-4285-a3ba-cf7e4dd18734
+- **現代化視覺**：採用霓虹風格介面與流暢的動畫。
+- **物理系統**：精確的球體碰撞檢測與反彈邏輯。
+- **互動控制**：支援滑鼠與鍵盤操作。
 
-## Run Locally
+## 如何運行
 
-**Prerequisites:**  Node.js
+1. 安裝相依套件：
+   ```bash
+   npm install
+   ```
 
+2. 啟動開發伺服器：
+   ```bash
+   npm run dev
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+3. 開啟瀏覽器並造訪 `http://localhost:5173`。
+
+## 操作說明
+
+- **移動平台**：使用鍵盤 `A` / `D` 或 `左箭頭` / `右箭頭`，也可以使用滑鼠移動。
+- **開始/暫停**：按下 `空白鍵`。
+- **重新開始**：當遊戲結束或勝利時，點擊按鈕重新開始。
+
+---
+本專案已完成 Google AI Studio 的清理與優化。
